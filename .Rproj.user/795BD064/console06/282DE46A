@@ -152,4 +152,57 @@ template.R     template.html
 JoshuaHarrisMBP:Cunliffe_BCA_Calc joshua_harris$ cp Scripts/template.R EXP_85_20191016/
 ]0;~/Dropbox/Research/Tools/Cunliffe_BCA_CalcJoshuaHarrisMBP:Cunliffe_BCA_Calc joshua_harris$ mv s[KEXP_85_20191016/template.R EXP_85_20191016.R
 ]0;~/Dropbox/Research/Tools/Cunliffe_BCA_CalcJoshuaHarrisMBP:Cunliffe_BCA_Calc joshua_harris$ c[Kmv EXP_85_20191016.R EXP_85_20191016.[K/
+<<<<<<< HEAD
 ]0;~/Dropbox/Research/Tools/Cunliffe_BCA_CalcJoshuaHarrisMBP:Cunliffe_BCA_Calc joshua_harris$ l[Krmarkdown[K[K[K[K[K[K[K[K[K
+=======
+[KJoshuaHarrisMBP:Cunliffe_BCA_Calc joshua_harris$ git stats[Kus
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	[31mmodified:   .DS_Store[m
+	[31mmodified:   .Rproj.user/795BD064/console06/282DE46A[m
+	[31mmodified:   .Rproj.user/795BD064/console06/INDEX001[m
+	[31mmodified:   .Rproj.user/795BD064/sources/prop/B23B25BF[m
+	[31mmodified:   .Rproj.user/795BD064/sources/prop/INDEX[m
+	[31mdeleted:    .Rproj.user/795BD064/sources/s-F1D57C16/68B7EE06[m
+	[31mdeleted:    .Rproj.user/795BD064/sources/s-F1D57C16/68B7EE06-contents[m
+	[31mdeleted:    .Rproj.user/795BD064/sources/s-F1D57C16/A2F2D182[m
+	[31mdeleted:    .Rproj.user/795BD064/sources/s-F1D57C16/A2F2D182-contents[m
+	[31mdeleted:    .Rproj.user/795BD064/sources/s-F1D57C16/BDA06C8E-contents[m
+	[31mdeleted:    .Rproj.user/795BD064/sources/s-F1D57C16/DB7EC2DA[m
+	[31mdeleted:    .Rproj.user/795BD064/sources/s-F1D57C16/DB7EC2DA-contents[m
+	[31mdeleted:    .Rproj.user/795BD064/sources/s-F1D57C16/DF01247F[m
+	[31mdeleted:    .Rproj.user/795BD064/sources/s-F1D57C16/DF01247F-contents[m
+	[31mdeleted:    .Rproj.user/795BD064/sources/s-F1D57C16/E261CD39[m
+	[31mdeleted:    .Rproj.user/795BD064/sources/s-F1D57C16/E261CD39-contents[m
+	[31mdeleted:    .Rproj.user/795BD064/sources/s-F1D57C16/E741A086[m
+	[31mdeleted:    .Rproj.user/795BD064/sources/s-F1D57C16/E741A086-contents[m
+	[31mdeleted:    .Rproj.user/795BD064/sources/s-F1D57C16/E77E629[m
+	[31mdeleted:    .Rproj.user/795BD064/sources/s-F1D57C16/E77E629-contents[m
+	[31mdeleted:    .Rproj.user/795BD064/sources/s-F1D57C16/EC20F3CB-contents[m
+	[31mdeleted:    .Rproj.user/795BD064/sources/s-F1D57C16/lock_file[m
+	[31mmodified:   .Rproj.user/shared/notebooks/paths[m
+	[31mdeleted:    EXP_85_20191016/EXP_85_20191016_BCA_Sample_Conc.csv[m
+	[31mdeleted:    EXP_85_20191016/EXP_85_20191016_Input_DF.csv[m
+	[31mdeleted:    EXP_85_20191016/EXP_85_20191016_Raw_Test.xls[m
+	[31mdeleted:    EXP_85_20191016/EXP_85_20191016_std_curve.jpeg[m
+	[31mdeleted:    Scripts/EXP_85_20191016_BCA_Sample_Conc.csv[m
+	[31mdeleted:    Scripts/EXP_85_20191016_std_curve.jpeg[m
+	[31mmodified:   Scripts/template.R[m
+	[31mdeleted:    Scripts/template.html[m
+	[31mdeleted:    Scripts/test.html[m
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	[31m.gitignore[m
+	[31minput_files/[m
+	[31mscripts/.DS_Store[m
+
+no changes added to commit (use "git add" and/or "git commit -a")
+]0;~/Dropbox/Research/Tools/Cunliffe_BCA_CalcJoshuaHarrisMBP:Cunliffe_BCA_Calc joshua_harris$ 
+>>>>>>> 79b39daaf9280cfc11cb0195574c6103b0febb44
