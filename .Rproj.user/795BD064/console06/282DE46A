@@ -124,3 +124,32 @@ Untracked files:
 
 no changes added to commit (use "git add" and/or "git commit -a")
 ]0;~/Dropbox/Research/Tools/Cunliffe_BCA_CalcJoshuaHarrisMBP:Cunliffe_BCA_Calc joshua_harris$ git add .
+]0;~/Dropbox/Research/Tools/Cunliffe_BCA_CalcJoshuaHarrisMBP:Cunliffe_BCA_Calc joshua_harris$ git commit -m ""a"d"e"[1P"d"e"d" "r"e"a"d"m"e"
+[master 4c864fc] added readme
+ 2 files changed, 93 insertions(+)
+ create mode 100644 README.md
+]0;~/Dropbox/Research/Tools/Cunliffe_BCA_CalcJoshuaHarrisMBP:Cunliffe_BCA_Calc joshua_harris$ git phs[K[Kush origin master
+Enumerating objects: 12, done.
+Counting objects:   8% (1/12)   Counting objects:  16% (2/12)   Counting objects:  25% (3/12)   Counting objects:  33% (4/12)   Counting objects:  41% (5/12)   Counting objects:  50% (6/12)   Counting objects:  58% (7/12)   Counting objects:  66% (8/12)   Counting objects:  75% (9/12)   Counting objects:  83% (10/12)   Counting objects:  91% (11/12)   Counting objects: 100% (12/12)   Counting objects: 100% (12/12), done.
+Delta compression using up to 12 threads
+Compressing objects:  14% (1/7)   Compressing objects:  28% (2/7)   Compressing objects:  42% (3/7)   Compressing objects:  57% (4/7)   Compressing objects:  71% (5/7)   Compressing objects:  85% (6/7)   Compressing objects: 100% (7/7)   Compressing objects: 100% (7/7), done.
+Writing objects:  14% (1/7)   Writing objects:  28% (2/7)   Writing objects:  42% (3/7)   Writing objects:  57% (4/7)   Writing objects:  71% (5/7)   Writing objects:  85% (6/7)   Writing objects: 100% (7/7)   Writing objects: 100% (7/7), 2.98 KiB | 2.98 MiB/s, done.
+Total 7 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas:   0% (0/1)[Kremote: Resolving deltas: 100% (1/1)[Kremote: Resolving deltas: 100% (1/1), completed with 1 local object.[K
+To https://github.com/JoshuaHarris391/BCA_Calculation.git
+   c70ac56..4c864fc  master -> master
+]0;~/Dropbox/Research/Tools/Cunliffe_BCA_CalcJoshuaHarrisMBP:Cunliffe_BCA_Calc joshua_harris$ ls
+Cunliffe_BCA_Calc.Rproj	EXP_85_20191016		Input_DF.csv		README.md		Scripts
+]0;~/Dropbox/Research/Tools/Cunliffe_BCA_CalcJoshuaHarrisMBP:Cunliffe_BCA_Calc joshua_harris$ cp EXP_85_20191016/tem[K[K[Ke[Ktempl[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kls ex[K[K[KEX[K[K EXP_85_20191016/
+EXP_85_20191016_BCA_Sample_Conc.csv	EXP_85_20191016_Raw_Test.xls
+EXP_85_20191016_Input_DF.csv		EXP_85_20191016_std_curve.jpeg
+]0;~/Dropbox/Research/Tools/Cunliffe_BCA_CalcJoshuaHarrisMBP:Cunliffe_BCA_Calc joshua_harris$ cp Scripts/template.
+template.R     template.html  
+JoshuaHarrisMBP:Cunliffe_BCA_Calc joshua_harris$ cp Scripts/template.
+template.R     template.html  
+JoshuaHarrisMBP:Cunliffe_BCA_Calc joshua_harris$ cp Scripts/template.
+template.R     template.html  
+JoshuaHarrisMBP:Cunliffe_BCA_Calc joshua_harris$ cp Scripts/template.R EXP_85_20191016/
+]0;~/Dropbox/Research/Tools/Cunliffe_BCA_CalcJoshuaHarrisMBP:Cunliffe_BCA_Calc joshua_harris$ mv s[KEXP_85_20191016/template.R EXP_85_20191016.R
+]0;~/Dropbox/Research/Tools/Cunliffe_BCA_CalcJoshuaHarrisMBP:Cunliffe_BCA_Calc joshua_harris$ c[Kmv EXP_85_20191016.R EXP_85_20191016.[K/
+]0;~/Dropbox/Research/Tools/Cunliffe_BCA_CalcJoshuaHarrisMBP:Cunliffe_BCA_Calc joshua_harris$ l[Krmarkdown[K[K[K[K[K[K[K[K[K

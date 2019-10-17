@@ -1,21 +1,18 @@
 #' ---
-#' title: "EXP_83 BCA"
+#' title: "EXP_85 BCA"
 #' author: "Joshua Harris"
 #' date: "2019_10_16"
 #' ---
 
 #' # Defining Variables
 ############## VARIABLES ################
-# Output Directory Name
-output_dir <- "EXP_85_20191016"
+# Experiment Name
+name_exp <- "EXP_85"
 # Input data
-input_data_ref <- "EXP_85_20191016_Input_DF.csv"
+input_data_ref <- "EXP_85_BCA_Input_DF.csv"
 # Working Dir
-setwd("~/Dropbox/Research/Tools/Cunliffe_BCA_Calc")
-
-# Creating output directory
-dir.create(output_dir)
-setwd(paste("~/Dropbox/Research/Tools/Cunliffe_BCA_Calc", output_dir, sep = "/"))
+wd <- getwd() 
+setwd(wd)
 
 #########################################
 
@@ -25,7 +22,7 @@ library(markdown)
 library(knitr)
 
 # Loading input 
-input_df <- read.csv(input_data_ref, header = T)
+input_df <- read.csv(paste("input_files/", input_data_ref, sep = ""), header = T)
 
 # Subsetting Standard curve DF
 unique_concs <- unique(input_df$STD_CONC)
@@ -94,8 +91,8 @@ knitr::kable(samples_output_df)
 # Saving jpeg
 ####################################################
 # Variables
-File.Path <- "./"
-File.Name <- paste(output_dir, "std_curve", sep = "_")
+File.Path <- "./output_files/"
+File.Name <- paste(name_exp, "std_curve", sep = "_")
 Plot.object <- STD_plot
 Fig.Width <- 10
 Fig.Height <- 10
@@ -107,4 +104,4 @@ plot(Plot.object)
 dev.off()
 
 # Saving DF
-write.csv(samples_output_df, file = paste(File.Path, output_dir, "_BCA_Sample_Conc.csv", sep = ""), row.names = F)
+write.csv(samples_output_df, file = paste(File.Path, name_exp, "_BCA_Sample_Conc.csv", sep = ""), row.names = F)
