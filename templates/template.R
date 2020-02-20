@@ -1,18 +1,20 @@
 #' ---
-#' title: "EXP_85 BCA"
+#' title: "EXP_84_20200220 BCA"
 #' author: "Joshua Harris"
-#' date: "2019_10_16"
+#' date: "2020_02_20"
 #' ---
 
 #' # Defining Variables
 ############## VARIABLES ################
 # Experiment Name
-name_exp <- "EXP_85"
+name_exp <- "EXP_84"
 # Input data
-input_data_ref <- "EXP_85_BCA_Input_DF.csv"
+input_folder_ref <- "EXP_84_20200220"
+input_data_ref <- "EXP_84_Input_DF_20200220.csv"
 # Working Dir
 wd <- getwd() 
 setwd(wd)
+# setwd("..")
 
 #########################################
 
@@ -22,7 +24,7 @@ library(markdown)
 library(knitr)
 
 # Loading input 
-input_df <- read.csv(paste("input_files/", input_data_ref, sep = ""), header = T)
+input_df <- read.csv(paste("/Users/joshua_harris/Dropbox/Research/Tools/Cunliffe_BCA_Calc/input_files",input_folder_ref, input_data_ref, sep = "/"), header = T)
 
 # Subsetting Standard curve DF
 unique_concs <- unique(input_df$STD_CONC)
@@ -91,17 +93,18 @@ knitr::kable(samples_output_df)
 # Saving jpeg
 ####################################################
 # Variables
-File.Path <- "./output_files/"
+File.Path <- paste("./output_files", input_folder_ref, sep = "/")
+dir.create(File.Path, recursive = T)
 File.Name <- paste(name_exp, "std_curve", sep = "_")
 Plot.object <- STD_plot
 Fig.Width <- 10
 Fig.Height <- 10
 
 # Single Save
-F_Name <- paste(File.Path, File.Name,".jpeg", sep = "")
+F_Name <- paste(File.Path, "/", File.Name,".jpeg", sep = "")
 jpeg(F_Name, width = Fig.Width, height = Fig.Height, units = "cm", res = 300)
 plot(Plot.object)
 dev.off()
 
 # Saving DF
-write.csv(samples_output_df, file = paste(File.Path, name_exp, "_BCA_Sample_Conc.csv", sep = ""), row.names = F)
+write.csv(samples_output_df, file = paste(File.Path, "/", name_exp, "_BCA_Sample_Conc.csv", sep = ""), row.names = F)
