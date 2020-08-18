@@ -10,20 +10,20 @@
 ```bash
 mkdir -p input_files/EXP_94_20200815
 ```
-1. Copy the input data frame templates to the input data folder you just created
+2. Copy the input data frame templates to the input data folder you just created
 ```bash
 cp templates/BCA* input_files/EXP_94_20200815/
 ```
 
-1. Copy the template script from the templates folder to the scripts_html folder. The scripts_html folder is where the compiled html report will be created
+3. Copy the template script from the templates folder to the scripts_html folder. The scripts_html folder is where the compiled html report will be created
 ```bash
 cp templates/template.R scripts_html/
 ```
-1. Rename template script name to the folder you created in step 1
+4. Rename template script name to the folder you created in step 1
 ```bash
 mv scripts_html/template.R scripts_html/EXP_94_20200815.R
 ```
-1. Open script and edit the title, author, and date.
+5. Open script and edit the title, author, and date.
 ```R
 #' ---
 #' title: "EXP_94_20200818 BCA"
@@ -32,14 +32,14 @@ mv scripts_html/template.R scripts_html/EXP_94_20200815.R
 #' ---
 ```
 
-1. Redefine the experiment name, and input data folder
+6. Redefine the experiment name, and input data folder
 ```R
 # Experiment Name
 name_exp <- "EXP_94"
 # Input data
 input_folder_ref <- "EXP_94_20200815"
 ```
-1. Either open the R script in R studio and compile, or run the bash code below:
+7. Either open the R script in R studio and compile, or run the bash code below:
 ```bash
 # Open R
 R
