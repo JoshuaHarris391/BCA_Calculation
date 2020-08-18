@@ -7,9 +7,9 @@
 #' # Defining Variables
 ############## VARIABLES ################
 # Experiment Name
-name_exp <- "EXP_94"
+name_exp <- "EXP_84"
 # Input data
-input_folder_ref <- "EXP_94_20200818"
+input_folder_ref <- "EXP_84_20200220"
 input_data_std <- "BCA_STD.csv"
 input_data_sample <- "BCA_SAMPLES.csv"
 
@@ -24,7 +24,7 @@ library(knitr)
 # Variable to access relative directories
 wd <- ".."
 
-# Loading input 
+# Loading input
 input_df_std <- read.csv(paste(wd,"input_files",input_folder_ref, input_data_std, sep = "/"), header = T)
 input_df_sample <- read.csv(paste(wd,"input_files",input_folder_ref, input_data_sample, sep = "/"), header = T)
 
@@ -32,7 +32,7 @@ input_df_sample <- read.csv(paste(wd,"input_files",input_folder_ref, input_data_
 input_df_std$MEAN <- apply(input_df_std[, 2:4], 1, mean)
 input_df_sample$MEAN <- apply(input_df_sample[, 2:4], 1, mean)
 
-# Fitting linear model 
+# Fitting linear model
 form_1 <- as.formula(MEAN~STD_CONC, env = input_df_std)
 model_1 <- lm(form_1, input_df_std)
 slope_1 <- model_1$coefficients[2]

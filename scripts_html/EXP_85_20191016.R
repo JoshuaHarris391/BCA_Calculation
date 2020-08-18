@@ -1,7 +1,7 @@
 #' ---
-#' title: "EXP_85 BCA"
+#' title: "EXP_94_20200818 BCA"
 #' author: "Joshua Harris"
-#' date: "2019_10_16"
+#' date: "18/08/2020"
 #' ---
 
 #' # Defining Variables
@@ -10,11 +10,9 @@
 name_exp <- "EXP_85"
 # Input data
 input_folder_ref <- "EXP_85_20191016"
-input_data_ref <- "EXP_85_BCA_Input_DF.csv"
-# Working Dir
-wd <- getwd() 
-setwd(wd)
-# setwd("..")
+input_data_std <- "BCA_STD.csv"
+input_data_sample <- "BCA_SAMPLES.csv"
+
 
 #########################################
 
@@ -23,30 +21,20 @@ library(tidyverse)
 library(markdown)
 library(knitr)
 
-# Loading input 
-input_df <- read.csv(paste("/Users/joshua_harris/Dropbox/Research/Tools/Cunliffe_BCA_Calc/input_files",input_folder_ref, input_data_ref, sep = "/"), header = T)
+# Variable to access relative directories
+wd <- ".."
 
-# Subsetting Standard curve DF
-unique_concs <- unique(input_df$STD_CONC)
-n_unique_concs <- length(unique_concs)
-# Slicing DF
-STD_DF_1 <- slice(input_df[, 1:2], 1:n_unique_concs)
-colnames(STD_DF_1) <- c("STD_CONC", "STD_SIG_1")
+# Loading input
+input_df_std <- read.csv(paste(wd,"input_files",input_folder_ref, input_data_std, sep = "/"), header = T)
+input_df_sample <- read.csv(paste(wd,"input_files",input_folder_ref, input_data_sample, sep = "/"), header = T)
 
-STD_DF_2 <- slice(input_df[, 1:2], (n_unique_concs+1):(n_unique_concs*2))
-colnames(STD_DF_2) <- c("STD_CONC", "STD_SIG_2")
-
-STD_DF_3 <- slice(input_df[, 1:2], (n_unique_concs*2+1):(n_unique_concs*3))
-colnames(STD_DF_3) <- c("STD_CONC", "STD_SIG_3")
-
-# Creating STD DF
-STD_DF <- left_join(STD_DF_1, STD_DF_2, by="STD_CONC") %>% left_join(., STD_DF_3, by = "STD_CONC")
 # Calculating mean
-STD_DF$MEAN <- apply(STD_DF[, 2:4], 1, mean)
+input_df_std$MEAN <- apply(input_df_std[, 2:4], 1, mean)
+input_df_sample$MEAN <- apply(input_df_sample[, 2:4], 1, mean)
 
-# Fitting linear model 
-form_1 <- as.formula(MEAN~STD_CONC, env = STD_DF)
-model_1 <- lm(form_1, STD_DF)
+# Fitting linear model
+form_1 <- as.formula(MEAN~STD_CONC, env = input_df_std)
+model_1 <- lm(form_1, input_df_std)
 slope_1 <- model_1$coefficients[2]
 intercept_1 <- model_1$coefficients[1]
 # Printing R-square value
@@ -54,7 +42,7 @@ lm_R2 <- summary(model_1)$adj.r.squared
 R2_val <- paste("R-squared",  "=", signif(lm_R2, 4), sep = " ") %>% print()
 
 # Making a Standard curve graph
-STD_plot <- ggplot(data =  STD_DF, aes(STD_CONC, MEAN)) +
+STD_plot <- ggplot(data =  input_df_std, aes(STD_CONC, MEAN)) +
   geom_point() +
   geom_abline(slope = model_1$coefficients[2], intercept = model_1$coefficients[1]) +
   ggtitle(paste("Standard Curve", " (", R2_val, ")", sep = "")) +
@@ -67,14 +55,13 @@ plot(STD_plot)
 
 
 #' # Calculating Sample Concentrations
-# Subsetting Samples to DF
-samples_DF <- input_df[, 3:ncol(input_df)] %>% na.omit()
 # Calculating concentrations of samples
-samples_list <- list()
 samples_output_df <- data.frame()
-for (i in colnames(samples_DF)) {
-  # calculating mean of sample
-  sample_mean <- mean(samples_DF[, i])
+
+for (i in input_df_sample$SAMPLE) {
+  # Subsetting sample mean
+  sample_mean <- input_df_sample %>% dplyr::filter(., SAMPLE == i) %>% dplyr::select(., MEAN)
+  sample_mean <- sample_mean$MEAN %>% as.numeric()
   # Calculating concentration
   Sample <- paste(i)
   Concentration <- (sample_mean - intercept_1)/slope_1 %>% signif(., 3)
@@ -93,7 +80,7 @@ knitr::kable(samples_output_df)
 # Saving jpeg
 ####################################################
 # Variables
-File.Path <- paste("./output_files", input_folder_ref, sep = "/")
+File.Path <- paste(wd, "output_files", input_folder_ref, sep = "/")
 dir.create(File.Path, recursive = T)
 File.Name <- paste(name_exp, "std_curve", sep = "_")
 Plot.object <- STD_plot
