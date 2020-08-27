@@ -6,47 +6,17 @@
 	- Despite knowing this, the Cunliffe lab have decided to keep doing the same protocol, as it has proven successful for subsequent experiments.
 
 ## Conducting the analysis:
-1. Create a folder in input_files for the experiment you want to analyse e.g.
-```bash
-mkdir -p input_files/EXP_94_20200815
-```
-2. Copy the input data frame templates to the input data folder you just created
-```bash
-cp templates/BCA* input_files/EXP_94_20200815/
+1. Open create_entry.R, define the folder you want to create, then run the script.
+```R
+# Folder/entry name
+Entry_name <- "EXP_TMP_20200827"
 ```
 
-3. Copy the template script from the templates folder to the scripts_html folder. The scripts_html folder is where the compiled html report will be created
-```bash
-cp templates/template.R scripts_html/
-```
-4. Rename template script name to the folder you created in step 1
-```bash
-mv scripts_html/template.R scripts_html/EXP_94_20200815.R
-```
-5. Open script and edit the title, author, and date.
-```R
-#' ---
-#' title: "EXP_94_20200818 BCA"
-#' author: "Joshua Harris"
-#' date: "18/08/2020"
-#' ---
-```
+2. Enter standard curve and sample data into the template data frames (BCA_STD.csv, BCA_SAMPLES.csv)
 
-6. Redefine the experiment name, and input data folder
-```R
-# Experiment Name
-name_exp <- "EXP_94"
-# Input data
-input_folder_ref <- "EXP_94_20200815"
-```
-7. Either open the R script in R studio and compile, or run the bash code below:
+3. Run compile_to_html.R to compile R analysis scripts to html and produce output files
 ```bash
-# Open R
-R
-# Run command in R terminal
-rmarkdown::render("scripts_html/EXP_94_20200815.R", "html_document")
-# Exit R terminal
-q()
+Rscript -e "source('compile_to_html.R')"                                           
 ```
 
 ## Input data format

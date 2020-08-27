@@ -1,15 +1,16 @@
 #' ---
-#' title: "EXP_84_20200220 BCA"
+#' title: "EXP_94_20200818 BCA"
 #' author: "Joshua Harris"
-#' date: "20/02/2020"
+#' date: "18/08/2020"
 #' ---
 
 #' # Defining Variables
-############## VARIABLES ################
+############## Variables ##############
+
 # Experiment Name
-name_exp <- "EXP_84"
+
 # Input data
-input_folder_ref <- "EXP_84_20200220"
+input_folder_ref <- "EXP_94_20200818"
 input_data_std <- "BCA_STD.csv"
 input_data_sample <- "BCA_SAMPLES.csv"
 
@@ -25,8 +26,8 @@ library(knitr)
 wd <- ".."
 
 # Loading input
-input_df_std <- read.csv(paste(wd,"input_files",input_folder_ref, input_data_std, sep = "/"), header = T)
-input_df_sample <- read.csv(paste(wd,"input_files",input_folder_ref, input_data_sample, sep = "/"), header = T)
+input_df_std <- read.csv(paste(input_data_std, sep = "/"), header = T)
+input_df_sample <- read.csv(paste(input_data_sample, sep = "/"), header = T)
 
 # Calculating mean
 input_df_std$MEAN <- apply(input_df_std[, 2:4], 1, mean)
@@ -80,9 +81,10 @@ knitr::kable(samples_output_df)
 # Saving jpeg
 ####################################################
 # Variables
-File.Path <- paste(wd, "output_files", input_folder_ref, sep = "/")
+
+File.Path <- paste("./outputs")
 dir.create(File.Path, recursive = T)
-File.Name <- paste(name_exp, "std_curve", sep = "_")
+File.Name <- paste(input_folder_ref, "std_curve", sep = "_")
 Plot.object <- STD_plot
 Fig.Width <- 10
 Fig.Height <- 10
@@ -94,4 +96,4 @@ plot(Plot.object)
 dev.off()
 
 # Saving DF
-write.csv(samples_output_df, file = paste(File.Path, "/", name_exp, "_BCA_Sample_Conc.csv", sep = ""), row.names = F)
+write.csv(samples_output_df, file = paste(File.Path, "/", input_folder_ref, "_BCA_Sample_Conc.csv", sep = ""), row.names = F)

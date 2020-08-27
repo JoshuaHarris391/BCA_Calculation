@@ -371,9 +371,10 @@ summary {
 
 <div id="defining-variables" class="section level1">
 <h1>Defining Variables</h1>
-<pre class="r"><code>############## VARIABLES ################
+<pre class="r"><code>############## Variables ##############
+
 # Experiment Name
-name_exp &lt;- &quot;EXP_85&quot;
+
 # Input data
 input_folder_ref &lt;- &quot;EXP_85_20191016&quot;
 input_data_std &lt;- &quot;BCA_STD.csv&quot;
@@ -383,24 +384,16 @@ input_data_sample &lt;- &quot;BCA_SAMPLES.csv&quot;
 #########################################
 
 # Loading Packages
-library(tidyverse)</code></pre>
-<pre><code>## ── Attaching packages ─────────────────────────────────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
-<pre><code>## ✓ ggplot2 3.3.2     ✓ purrr   0.3.4
-## ✓ tibble  3.0.3     ✓ dplyr   1.0.1
-## ✓ tidyr   1.1.1     ✓ stringr 1.4.0
-## ✓ readr   1.3.1     ✓ forcats 0.5.0</code></pre>
-<pre><code>## ── Conflicts ────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
-## x dplyr::filter() masks stats::filter()
-## x dplyr::lag()    masks stats::lag()</code></pre>
-<pre class="r"><code>library(markdown)
+library(tidyverse)
+library(markdown)
 library(knitr)
 
 # Variable to access relative directories
 wd &lt;- &quot;..&quot;
 
 # Loading input
-input_df_std &lt;- read.csv(paste(wd,&quot;input_files&quot;,input_folder_ref, input_data_std, sep = &quot;/&quot;), header = T)
-input_df_sample &lt;- read.csv(paste(wd,&quot;input_files&quot;,input_folder_ref, input_data_sample, sep = &quot;/&quot;), header = T)
+input_df_std &lt;- read.csv(paste(input_data_std, sep = &quot;/&quot;), header = T)
+input_df_sample &lt;- read.csv(paste(input_data_sample, sep = &quot;/&quot;), header = T)
 
 # Calculating mean
 input_df_std$MEAN &lt;- apply(input_df_std[, 2:4], 1, mean)
@@ -495,11 +488,11 @@ for (i in input_df_sample$SAMPLE) {
 # Saving jpeg
 ####################################################
 # Variables
-File.Path &lt;- paste(wd, &quot;output_files&quot;, input_folder_ref, sep = &quot;/&quot;)
+
+File.Path &lt;- paste(&quot;./outputs&quot;)
 dir.create(File.Path, recursive = T)</code></pre>
-<pre><code>## Warning in dir.create(File.Path, recursive = T): '../output_files/
-## EXP_85_20191016' already exists</code></pre>
-<pre class="r"><code>File.Name &lt;- paste(name_exp, &quot;std_curve&quot;, sep = &quot;_&quot;)
+<pre><code>## Warning in dir.create(File.Path, recursive = T): './outputs' already exists</code></pre>
+<pre class="r"><code>File.Name &lt;- paste(input_folder_ref, &quot;std_curve&quot;, sep = &quot;_&quot;)
 Plot.object &lt;- STD_plot
 Fig.Width &lt;- 10
 Fig.Height &lt;- 10
@@ -512,7 +505,7 @@ dev.off()</code></pre>
 <pre><code>## quartz_off_screen 
 ##                 2</code></pre>
 <pre class="r"><code># Saving DF
-write.csv(samples_output_df, file = paste(File.Path, &quot;/&quot;, name_exp, &quot;_BCA_Sample_Conc.csv&quot;, sep = &quot;&quot;), row.names = F)</code></pre>
+write.csv(samples_output_df, file = paste(File.Path, &quot;/&quot;, input_folder_ref, &quot;_BCA_Sample_Conc.csv&quot;, sep = &quot;&quot;), row.names = F)</code></pre>
 </div>
 
 
